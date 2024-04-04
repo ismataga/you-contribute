@@ -6,9 +6,7 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 
 import java.util.List;
 
-public interface RepositoryRepository extends PagingAndSortingRepository<Repository, Integer>, JpaRepository<Repository, Integer>{
-
-     List<Repository> findAll();
-
+public interface RepositoryRepository extends PagingAndSortingRepository<Repository, Integer>, JpaRepository<Repository, Integer> {
+    List<Repository> findAll();
 
 }
