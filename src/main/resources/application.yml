@@ -6,3 +6,9 @@ spring:
     show-sql: true
     hibernate:
       ddl-auto: create
+github:
+  api-url: https://api.github.com
+  token: ${GITHUB_API_TOKEN}
+
+application:
+  import-frequency: ${ISSUES_IMPORT_FREQUENCY:60000}

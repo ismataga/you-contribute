@@ -19,6 +19,7 @@ public class RepositoryService {
         Repository repositoryEntity = Repository.builder()
                 .organization(organization)
                 .repository(repository)
+                .updatedAt(null)
                 .build();
         this.repositoryRepository.save(repositoryEntity);
 
