@@ -19,7 +19,7 @@ public class GithubIssueResponse {
     public String htmlUrl;
     public long id;
     public String nodeId;
-    public long number;
+    public int number;
     public String title;
     public User user;
     public List<Label> labels;

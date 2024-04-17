@@ -10,11 +10,13 @@ import java.util.stream.Collectors;
 @Data
 @Builder
 public class RepositoryResource {
+    private Integer id;
     private String name;
     private String organization;
 
     public static RepositoryResource createFor(Repository repository) {
         return RepositoryResource.builder()
+                .id(repository.getId())
                 .name(repository.getRepository())
                 .organization(repository.getOrganization())
                 .build();
