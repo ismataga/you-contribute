@@ -1,24 +1,19 @@
 package com.example.youcontribute.schedulers;
 
 import com.example.youcontribute.client.OneSignalClient;
-import com.example.youcontribute.manager.RepositoryManager;
 import com.example.youcontribute.model.Issue;
 import com.example.youcontribute.model.IssueChallenge;
-import com.example.youcontribute.model.Repository;
 import com.example.youcontribute.service.IssueChallengeService;
 import com.example.youcontribute.service.IssuesService;
-import com.example.youcontribute.service.RepositoryService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
-import java.util.List;
-
 @AllArgsConstructor
 @Component
 @Slf4j
-public class ChallengeIssuesScheduler {
+public class TrackChallengesScheduler {
 
     private final IssuesService issuesService;
     private final IssueChallengeService issueChallengeService;

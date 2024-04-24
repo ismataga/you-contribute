@@ -2,6 +2,7 @@ package com.example.youcontribute.controllers;
 
 
 import com.example.youcontribute.controllers.request.UpdateChallengeStatusRequest;
+import com.example.youcontribute.controllers.resource.IssueChallengeResource;
 import com.example.youcontribute.controllers.resource.IssueResource;
 import com.example.youcontribute.model.IssueChallenge;
 import com.example.youcontribute.service.IssueChallengeService;
@@ -28,7 +29,7 @@ public class IssueChallengeController {
     }
 
     @GetMapping
-    public List<IssueChallenge> list(){
-        this.issueChallengeService.list();
+    public List<IssueChallengeResource> list(){
+       return IssueChallengeResource.createFor(this.issueChallengeService.list());
     }
 }
