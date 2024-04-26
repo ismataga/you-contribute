@@ -2,6 +2,7 @@ package com.example.youcontribute.service;
 
 import com.example.youcontribute.config.GithubProperties;
 import com.example.youcontribute.service.models.GithubIssueResponse;
+import com.example.youcontribute.service.models.GithubPullResponse;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -32,6 +33,18 @@ public class GithubClient {
 
         ResponseEntity<GithubIssueResponse[]> response = this.restTemplate.exchange(issuesUrl, HttpMethod.GET,
                 request, GithubIssueResponse[].class);
+        return response.getBody();
+    }
+    public GithubPullResponse[] listPullRequests(String owner, String repository) {
+        String pullRequestsUrl = String.format("%s/repos/%s/%s/pulls?state=closed", this.githubProperties.getApiUrl(),
+                owner, repository);
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Authorization", "token "+ this.githubProperties.getToken());
+        HttpEntity request = new HttpEntity(headers);
+
+        ResponseEntity<GithubPullResponse[]> response = this.restTemplate.exchange(pullRequestsUrl, HttpMethod.GET,
+                request, GithubPullResponse[].class);
         return response.getBody();
     }
 }

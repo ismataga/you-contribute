@@ -17,4 +17,6 @@ public interface IssuesRepository extends PagingAndSortingRepository<Issue, Inte
     @Query(value = "select * from issue where id not in (select issue.id from issue challenge) " +
             "order by rand() limit 1", nativeQuery = true)
     Optional<Issue> findRandomIssue();
-}
+
+    Optional<Issue> findByGithubIssueId(Long githubIssueId);
+ }

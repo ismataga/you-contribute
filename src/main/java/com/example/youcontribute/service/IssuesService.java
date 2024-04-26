@@ -18,6 +18,11 @@ public class IssuesService {
 
     @Transactional
     public void saveAll(List<Issue> issues) {
+        issues.forEach(issue -> {
+            if (this.issueRepository.findByGithubIssueId(issue.getGithubIssueId()).isEmpty()) {
+                this.issueRepository.save(issue);
+            }
+        });
         this.issueRepository.saveAll(issues);
     }
 
@@ -27,6 +32,6 @@ public class IssuesService {
     }
 
     public Issue findRandomIssue() {
-        return this.issueRepository.findRandomIssue().orElseThrow(()->new EntityNotFoundException("No such issue"));
+        return this.issueRepository.findRandomIssue().orElseThrow(() -> new EntityNotFoundException("No such issue"));
     }
 }

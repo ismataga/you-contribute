@@ -13,6 +13,7 @@ github:
 application:
   import-frequency: ${ISSUES_IMPORT_FREQUENCY:60000}
   challenge-frequency: ${ISSUES_CHALLENGE_FREQUENCY:10000}
+  challenge-tracking-frequency: ${CHALLENGE_TRACKING_FREQUENCY:10000}
   oneSignal:
     app-id: ${ONE_SIGNAL_APP_ID}
     apiAuthKey: ${ONE_SIGNAL_API_AUTH_KEY}
