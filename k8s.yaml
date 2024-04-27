@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: youcontribute
+  labels:
+    app: youcontribute
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: youcontribute
+  template:
+    metadata:
+      labels:
+        app: youcontribute
+    spec:
+      containers:
+      - name: youcontribute
+        image: ismataga/youcontribute:v1
+        ports:
+          - containerPort: 8080
